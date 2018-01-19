@@ -1,15 +1,14 @@
-const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
-const router = express.Router()
+const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const router = express.Router();
 router.use(expressLayouts);
 
-router.get('/', (req, res) => {
-    res.render('pages/index', { title: 'Home' })
-})
+router.get("/", (req, res) => {
+    res.render("pages/index", { title: "Home" });
+});
 
+router.get("/about", (req, res) => {
+    res.render("pages/about", { title: "About" });
+});
 
-router.get('/about', (req, res) => {
-    res.render('pages/about', { title: 'About' })
-})
-
-module.exports = router
+module.exports = router;
