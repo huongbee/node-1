@@ -23,9 +23,8 @@ router.post("/add", (req, res) => {
     const avatar = upload.single('avatar');
     avatar(req, res, err => {
         if (err) return res.send(err.message);
-
-        console.log(req.body);
-        console.log(req.file);
+        // console.log(req.body);
+        // console.log(req.file);
         new Book({
             title: req.body.title,
             author: req.body.author,
