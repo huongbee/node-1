@@ -11,11 +11,15 @@ const bookSchema = new Schema({
     type: String,
     required: true
   },
+  user: {
+    type: String,
+    required: true
+  },
   detail: {
     type: String,
     required: true
   },
-  user: {
+  image: {
     type: String,
     required: true
   },

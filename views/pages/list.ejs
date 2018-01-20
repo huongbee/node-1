@@ -1,43 +1,49 @@
 <%- contentFor('content')%>
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <h2>List Book</h2>
-        </div>
-        <div class="panel-body">
-            <div class="row justify-content-center">
-                <div class="col-sm-8">
-                    <table class="table table-bordered table-hover table-inverse ">
-                        <thead class="thead-inverse">
-                            <tr>
-                                <th>#</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Detail</th>
-                                <th>Option</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% books.forEach(function(book, index){%>
+    <div class="container">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h2>List Book</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered table-hover table-inverse ">
+                            <thead class="thead-inverse">
                                 <tr>
-                                    <td scope="row">
-                                        <%= ++index%>
-                                    </td>
-                                    <td>
-                                        <%= book.title%>
-                                    </td>
-                                    <td>
-                                        <%= book.author%>
-                                    </td>
-                                    <td>
-                                        <%= book.detail%>
-                                    </td>
-                                    <td>
-                                        Edit | Delete
-                                    </td>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Detail</th>
+                                    <th>Image</th>
+                                    <th>Option</th>
                                 </tr>
-                                <% })%>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <% books.forEach(function(book, index){%>
+                                    <tr>
+                                        <td scope="row">
+                                            <%= ++index%>
+                                        </td>
+                                        <td>
+                                            <%= book.title%>
+                                        </td>
+                                        <td>
+                                            <%= book.author%>
+                                        </td>
+                                        <td>
+                                            <%= book.detail%>
+                                        </td>
+                                        <td>
+                                            <img src="/images/book/<%= book.image%>" alt="<%= book.title%>">
+                                        </td>
+                                        <td>
+                                            Edit | Delete
+                                        </td>
+                                    </tr>
+                                    <% })%>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
