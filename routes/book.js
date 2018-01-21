@@ -11,6 +11,7 @@ router.use(expressLayouts);
 
 router.get("/", (req, res) => {
     Book.find({})
+        .sort({ _id: -1 }) // -1:desc  1:asc
         .then(books => res.render("book/list", { title: "List Book", books }))
         .catch(err => console.log(err))
 
@@ -71,5 +72,12 @@ router.post("/edit", (req, res) => {
         }
     })
 });
+router.get('/delete/:id', (req, res) => {
+    Book.findOneAndRemove(req.params.id)
+        .then(book => {
+            if (!book) return res.send('Not Found!!')
+            return res.redirect('/book')
+        }).catch(err => res.send("Errr.."))
+})
 module.exports = router;
 
