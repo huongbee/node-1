@@ -4,9 +4,9 @@ const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
 const Book = require("./models/Books");
+const db = require('./config/database')
 
-mongoose.connect("mongodb://localhost/book")
-    .then(() => console.log('Mongoose connected!...'))
+mongoose.connect(db.mongoURI).then(() => console.log('Mongoose connected!...'))
     .catch(err => console.log('Errorrrr.........'));
 //const Book = mongoose.model("Book", book);
 
