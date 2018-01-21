@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "repository": "https://github.com/huongnguyen08/node-1.git",
-  "author": "<you@example.com>",
+  "author": "Huong",
   "license": "MIT",
   "scripts": {
     "start": "server.js"
