@@ -4,11 +4,11 @@ const router = express.Router();
 router.use(expressLayouts);
 
 router.get("/", (req, res) => {
-    res.render("pages/index", { title: "Home" });
+    res.render("index", { title: "Home" });
 });
 
 router.get("/about", (req, res) => {
-    res.render("pages/about", { title: "About" });
+    res.render("about", { title: "About" });
 });
 
 module.exports = router;

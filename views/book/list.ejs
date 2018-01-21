@@ -4,7 +4,9 @@
             <div class="panel-heading">
                 <div class="row">
                     <h2 class="col-sm-6">List Book</h2>
-                    <h3 class="col-sm-6 text-right"><a href="/book/add">Add new</a></h3>
+                    <h3 class="col-sm-6 text-right">
+                        <a href="/book/add">Add new</a>
+                    </h3>
                 </div>
             </div>
             <div class="panel-body">
@@ -40,7 +42,8 @@
                                             <img src="/images/book/<%= book.image%>" alt="<%= book.title%>" width="150px">
                                         </td>
                                         <td>
-                                            Edit | Delete
+                                            <a href="/book/edit/<%= book._id%>">Edit</a> |
+                                            <a href="/book/delete/<%= book._id%>">Delete</a>
                                         </td>
                                     </tr>
                                     <% })%>

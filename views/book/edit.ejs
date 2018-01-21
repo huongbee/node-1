@@ -1,0 +1,34 @@
+<%- contentFor('content')%>
+    <div class="container">
+        <form action="/book/edit" method="POST" enctype="multipart/form-data">
+            <legend>
+                <h2>
+                    <%=title%>
+                </h2>
+            </legend>
+            <input type="hidden" value="<%=book._id%>" name="id">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" value="<%= book ? book.title : ''%>" class="form-control" name="title" placeholder="Enter title" required>
+            </div>
+            <div class="form-group">
+                <label for="">Author</label>
+                <input type="text" class="form-control" value="<%= book ? book.author : ''%>" name="author" placeholder="Enter author" required>
+            </div>
+            <div class="form-group">
+                <label for="">Detail</label>
+                <textarea class="form-control" name="detail" id="" rows="10"><%= book ? book.detail : ''%></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control-file" name="avatar">
+            </div>
+            <div class="form-group">
+                <% if(book){%>
+                    <img src="/images/book/<%=book.image%>" width="100px">
+                    <% }%>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+
+    </div>
