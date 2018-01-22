@@ -28,6 +28,10 @@ app.use("/", index);
 const routeBook = require("./routes/book");
 app.use("/book", routeBook);
 
+//call route user
+const routeUser = require("./routes/user");
+app.use("/user", routeUser);
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
