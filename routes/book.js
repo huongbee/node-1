@@ -5,11 +5,12 @@ const mongoose = require('mongoose');
 const Book = require('../models/book.model')
 const upload = require('../helpers/UploadFile');
 const multer = require("multer")()
+const { checkLogin } = require("../helpers/checkLogin")
 
 const expressLayouts = require("express-ejs-layouts");
 router.use(expressLayouts);
 
-router.get("/", (req, res) => {
+router.get("/", checkLogin, (req, res) => {
     Book.find({})
         .sort({ _id: -1 }) // -1:desc  1:asc
         .then(books => res.render("book/list", { title: "List Book", books }))
@@ -17,12 +18,12 @@ router.get("/", (req, res) => {
 
 });
 
-router.get("/add", (req, res) => {
+router.get("/add", checkLogin, (req, res) => {
 
     res.render("book/form", { title: "Add book", book: null });
 });
 
-router.post("/add", (req, res) => {
+router.post("/add", checkLogin, (req, res) => {
     const avatar = upload.single('avatar');
     avatar(req, res, err => {
         if (err) return res.send(err.message);
@@ -41,13 +42,13 @@ router.post("/add", (req, res) => {
 
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", checkLogin, (req, res) => {
     //console.log(req.params);
     Book.findOne({ _id: req.params.id })
         .then(book => res.render("book/edit", { title: "Edit book", book: book }))
         .catch(err => res.send(err.message))
 });
-router.post("/edit", (req, res) => {
+router.post("/edit", checkLogin, (req, res) => {
     const user = 1;
     const avatar = upload.single('avatar');
     avatar(req, res, err => {

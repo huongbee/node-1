@@ -3,6 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 const bodyParser = require('body-parser').urlencoded({ extended: false })
+const passport = require("passport")
+// const LocalStrategy = require('passport-local').Strategy;
+
 
 
 router.get('/register', (req, res) => {
@@ -30,7 +33,18 @@ router.post('/register', bodyParser, (req, res) => {
     })
 })
 router.get('/login', (req, res) => {
-    res.send('loginnn')
-    //return res.render('user/register', { title: "Register" })
+    return res.render('user/login', { title: "Login" })
+})
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: './login',
+        failureFlash: false
+    })(req, res, next)
+    //console.log(5)
+})
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('./login')
 })
 module.exports = router
