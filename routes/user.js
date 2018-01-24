@@ -37,11 +37,10 @@ router.get('/login', (req, res) => {
 })
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/book',
         failureRedirect: './login',
-        failureFlash: false
+        failureFlash: false,
     })(req, res, next)
-    //console.log(5)
 })
 router.get('/logout', (req, res) => {
     req.logout();

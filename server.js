@@ -24,13 +24,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.use(session({
-    secret: '2323hihihi',
+    secret: 'secret',
     resave: true,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }))
 
-require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -52,6 +50,7 @@ const routeUser = require("./routes/user");
 app.use("/user", routeUser);
 
 
+require('./config/passport')(passport);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server start on port ${port}`);

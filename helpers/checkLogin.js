@@ -1,6 +1,5 @@
 module.exports = {
     checkLogin: (req, res, next) => {
-        //console.log(req._passport.Passport)
         if (req.isAuthenticated()) {
             return next();
         }
