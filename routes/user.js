@@ -47,3 +47,33 @@ router.get('/logout', (req, res) => {
     res.redirect('./login')
 })
 module.exports = router
+
+
+/**
+
+app.get('/dangky', (req, res) => {
+    res.render('dangky');
+});
+
+app.get('/dangnhap', (req, res) => {
+    res.render('dangnhap');
+});
+
+app.post('/dangky', (req, res) => {
+    upload.single('avatar')(req, res, err => {
+        const { name, email, password, phone } = req.body;
+        const avatar = req.file ? req.file.filename : 'default.png';
+        User.signUp(email, password, name, phone, avatar)
+        .then(user => res.send('Dang ky thanh cong'))
+        .catch(err => res.send('Dang ky that bai'));
+    });
+});
+
+app.post('/dangnhap', parser, (req, res) => {
+    const { email, password } = req.body;
+    User.signIn(email, password)
+    .then(() => res.send('Dang nhap thanh cong.'))
+    .catch(err => res.send('Dang nhap that bai.'));
+});
+
+ */

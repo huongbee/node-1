@@ -15,7 +15,7 @@ mongoose.connect(db.mongoURI)
 mongoose.Promise = global.Promise;
 
 app.set("view engine", "ejs");
-app.use(express.static('./public'));
+app.use(express.static('./public/'));
 
 app.use(expressLayouts);
 app.set("layout", "./layout");
