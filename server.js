@@ -24,9 +24,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.use(session({
-    secret: 'secret',
+    secret: 'secretdfffffddferwedw4443332',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    rolling: true,
+    cookie: { secure: false, maxAge: 100000 }
 }))
 
 app.use(passport.initialize());
